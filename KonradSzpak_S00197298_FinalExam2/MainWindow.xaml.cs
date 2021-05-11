@@ -27,19 +27,13 @@ namespace KonradSzpak_S00197298_FinalExam2
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             var query = from g in db.Games
                         select g;
 
-
             lbGames.ItemsSource = query.ToList();
-
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
-
             Game selectedGame = lbGames.SelectedItem as Game;
 
             if (selectedGame != null)
@@ -47,23 +41,42 @@ namespace KonradSzpak_S00197298_FinalExam2
                 imgGame.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
                 tbPrice.Text = $"{selectedGame.Price:C}";
             }
-
-
-
-            
-
         }
 
         private void r_Click(object sender, RoutedEventArgs e)
         {
-            if(rPC.IsChecked == true)
+            
+
+            if (rPS.IsChecked == true)
             {
                 var query = from g in db.Games
-                            where g.Platform == "PC"
+                            where g.Platform == "PS"
                             select g;
 
                 lbGames.ItemsSource = query.ToList();
+            }
+            if(rNS.IsChecked == true)
+            {
+                var query = from g in db.Games
+                            where g.Platform == "Switch"
+                            select g;
 
+                lbGames.ItemsSource = query.ToList();
+            }
+            if(rXB.IsChecked == true)
+            {
+                var query = from g in db.Games
+                            where g.Platform == "Xbox"
+                            select g;
+                lbGames.ItemsSource = query.ToList();
+            }
+            if(rPC.IsChecked == true)
+            {
+                var query = from g in db.Games
+                            where g.Platform == "PC, Xbox, PS, Switch"
+                            select g;
+
+                lbGames.ItemsSource = query.ToList();
             }
         }
     }
