@@ -25,6 +25,7 @@ namespace KonradSzpak_S00197298_FinalExam2
         {
             InitializeComponent();
         }
+        //loads in the data into the listbox
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var query = from g in db.Games
@@ -32,6 +33,7 @@ namespace KonradSzpak_S00197298_FinalExam2
 
             lbGames.ItemsSource = query.ToList();
         }
+        //selection changed changes the image and price
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Game selectedGame = lbGames.SelectedItem as Game;
@@ -40,9 +42,12 @@ namespace KonradSzpak_S00197298_FinalExam2
             {
                 imgGame.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
                 tbPrice.Text = $"{selectedGame.Price:C}";
+                tbName.Text = $"{selectedGame.Name}";
+                tbCS.Text = $"{selectedGame.CriticScore}";
+                tbDesc.Text = $"{selectedGame.Description}";
             }
         }
-
+        //filters the data
         private void r_Click(object sender, RoutedEventArgs e)
         {
             

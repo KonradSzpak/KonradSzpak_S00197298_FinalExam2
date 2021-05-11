@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:KonradSzpak_S00197298_FinalExam2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <DataTemplate x:Key="images">
+            <StackPanel>
+                <Image Source="{Binding GameImage}" Width="100" Height="100"/>
+                <TextBlock Text="{Binding CriticScore}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
@@ -16,12 +25,16 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lbGames" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="264" SelectionChanged="ListBox_SelectionChanged"/>
-        <TextBlock x:Name="tbPrice" Grid.Column="2" HorizontalAlignment="Left" Margin="0,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="138" FontSize="24"><Run/><LineBreak/><Run/></TextBlock>
-        <Image x:Name="imgGame" Grid.Column="1" HorizontalAlignment="Left" Height="276" Margin="191,134,0,0" VerticalAlignment="Top" Width="224" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <RadioButton x:Name="rNS" Content="NS" HorizontalAlignment="Left" Margin="53,149,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
-        <RadioButton x:Name="rPC" Content="PC" HorizontalAlignment="Left" Margin="53,35,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
-        <RadioButton x:Name="rPS" Content="PS" HorizontalAlignment="Left" Margin="53,70,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
-        <RadioButton x:Name="rXB" Content="XB" HorizontalAlignment="Left" Margin="53,110,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
+        <ListBox x:Name="lbGames" ItemTemplate="{StaticResource images}" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="264" SelectionChanged="ListBox_SelectionChanged" Grid.RowSpan="2"/>
+        <TextBlock x:Name="tbPrice" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="138" FontSize="14"/>
+        <Image x:Name="imgGame" Grid.Column="2" HorizontalAlignment="Left" Height="215" Margin="32,186,0,0" VerticalAlignment="Top" Width="202" Grid.RowSpan="2"/>
+        <RadioButton x:Name="rNS" Content="NS" HorizontalAlignment="Left" Margin="76,147,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click" Grid.Column="1"/>
+        <RadioButton x:Name="rPC" Content="PC" HorizontalAlignment="Left" Margin="76,33,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click" Grid.Column="1"/>
+        <RadioButton x:Name="rPS" Content="PS" HorizontalAlignment="Left" Margin="76,68,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click" Grid.Column="1"/>
+        <RadioButton x:Name="rXB" Content="XB" HorizontalAlignment="Left" Margin="76,108,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click" Grid.Column="1"/>
+        <TextBlock x:Name="tbCS" Grid.Column="2" HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="138" FontSize="14"/>
+        <TextBlock x:Name="tbName" Grid.Column="2" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="138" FontSize="14"/>
+        <TextBlock x:Name="tbDesc" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="146" Width="225" FontSize="14"/>
     </Grid>
+
 </Window>
