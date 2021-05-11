@@ -1,4 +1,6 @@
 ﻿using KonradSzpak_S00197298_FinalExam2;
+using System;
+
 
 namespace DatabaseManagment
 {
@@ -56,6 +58,8 @@ namespace DatabaseManagment
                 db.Games.Add(g4);
 
                 db.SaveChanges();
+
+                Console.WriteLine("done");
             }
         }
     }

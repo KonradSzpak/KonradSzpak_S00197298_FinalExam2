@@ -4,6 +4,7 @@ namespace KonradSzpak_S00197298_FinalExam2
 {
     public class Game
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public int CriticScore { get; set; }
         public string Description { get; set; }

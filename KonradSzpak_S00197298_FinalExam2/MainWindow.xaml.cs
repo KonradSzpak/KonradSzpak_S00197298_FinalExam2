@@ -20,9 +20,51 @@ namespace KonradSzpak_S00197298_FinalExam2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public GameData db = new GameData();
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            var query = from g in db.Games
+                        select g;
+
+
+            lbGames.ItemsSource = query.ToList();
+
+        }
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+
+
+            Game selectedGame = lbGames.SelectedItem as Game;
+
+            if (selectedGame != null)
+            {
+                imgGame.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
+                tbPrice.Text = $"{selectedGame.Price:C}";
+            }
+
+
+
+            
+
+        }
+
+        private void r_Click(object sender, RoutedEventArgs e)
+        {
+            if(rPC.IsChecked == true)
+            {
+                var query = from g in db.Games
+                            where g.Platform == "PC"
+                            select g;
+
+                lbGames.ItemsSource = query.ToList();
+
+            }
         }
     }
 }

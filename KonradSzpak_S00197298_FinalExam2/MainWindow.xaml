@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonradSzpak_S00197298_FinalExam2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="lbGames" HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="264" SelectionChanged="ListBox_SelectionChanged"/>
+        <TextBlock x:Name="tbPrice" Grid.Column="2" HorizontalAlignment="Left" Margin="0,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="138" FontSize="24"><Run/><LineBreak/><Run/></TextBlock>
+        <Image x:Name="imgGame" Grid.Column="1" HorizontalAlignment="Left" Height="276" Margin="191,134,0,0" VerticalAlignment="Top" Width="224" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="rNS" Content="NS" HorizontalAlignment="Left" Margin="53,149,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
+        <RadioButton x:Name="rPC" Content="PC" HorizontalAlignment="Left" Margin="53,35,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
+        <RadioButton x:Name="rPS" Content="PS" HorizontalAlignment="Left" Margin="53,70,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
+        <RadioButton x:Name="rXB" Content="XB" HorizontalAlignment="Left" Margin="53,110,0,0" VerticalAlignment="Top" Grid.Row="1" Click="r_Click"/>
     </Grid>
 </Window>
